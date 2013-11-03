@@ -8,8 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PCOHashtagOutputWindow;
+
 @interface PCOAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow * window;
+
+@property (nonatomic, strong) PCOHashtagOutputWindow * outputWindow;
+
+@property (nonatomic, strong) NSMutableArray * posts;
+@property (nonatomic, strong) NSTimer * dataUpdateTimer;
+
+- (IBAction)showPreferences:(id)sender;
 
 @end
