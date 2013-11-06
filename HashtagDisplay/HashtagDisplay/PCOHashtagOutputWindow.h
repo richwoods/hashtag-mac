@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface PCOHashtagOutputWindow : NSWindow
 
 - (id)initWithScreenIndex:(NSUInteger)screenIndex;
@@ -15,6 +17,12 @@
 @property (nonatomic, strong) NSMutableArray * posts;
 
 @property (nonatomic, strong) NSTimer * flipTimer; // timer to change slides
+
+
+@property (nonatomic, strong) CALayer * imageLayer;
+@property (nonatomic, strong) CATextLayer * bodyTextLayer;
+@property (nonatomic, strong) CATextLayer * fullNameLayer;
+@property (nonatomic, strong) CATextLayer * usernameLayer;
 
 @end
 

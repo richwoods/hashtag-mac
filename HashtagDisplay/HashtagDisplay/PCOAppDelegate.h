@@ -17,6 +17,7 @@
 @property (nonatomic, strong) PCOHashtagOutputWindow * outputWindow;
 
 @property (nonatomic, strong) NSMutableArray * posts;
+@property (nonatomic, strong) NSString * hashtagTitle;
 @property (nonatomic, strong) NSTimer * dataUpdateTimer;
 
 - (IBAction)showPreferences:(id)sender;

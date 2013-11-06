@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58266ACA1829CCA000C02C64 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58266AC91829CCA000C02C64 /* QuartzCore.framework */; };
 		58C3CF131826D4D800DFCFD0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C3CF121826D4D800DFCFD0 /* Cocoa.framework */; };
 		58C3CF1D1826D4D800DFCFD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58C3CF1B1826D4D800DFCFD0 /* InfoPlist.strings */; };
 		58C3CF1F1826D4D800DFCFD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C3CF1E1826D4D800DFCFD0 /* main.m */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58266AC91829CCA000C02C64 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		58C3CF0F1826D4D800DFCFD0 /* HashtagDisplay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HashtagDisplay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C3CF121826D4D800DFCFD0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		58C3CF151826D4D800DFCFD0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58266ACA1829CCA000C02C64 /* QuartzCore.framework in Frameworks */,
 				58C3CF131826D4D800DFCFD0 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +109,7 @@
 		58C3CF111826D4D800DFCFD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58266AC91829CCA000C02C64 /* QuartzCore.framework */,
 				58C3CF121826D4D800DFCFD0 /* Cocoa.framework */,
 				58C3CF311826D4D800DFCFD0 /* XCTest.framework */,
 				58C3CF141826D4D800DFCFD0 /* Other Frameworks */,
@@ -492,6 +496,7 @@
 				58C3CF421826D4D800DFCFD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58C3CF431826D4D800DFCFD0 /* Build configuration list for PBXNativeTarget "HashtagDisplayTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				58C3CF451826D4D800DFCFD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

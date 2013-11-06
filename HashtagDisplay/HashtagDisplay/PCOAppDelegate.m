@@ -8,6 +8,7 @@
 
 #import "PCOAppDelegate.h"
 
+#import "PCOHashtagPost.h"
 #import "PCOHashtagOutputWindow.h"
 
 @implementation PCOAppDelegate
@@ -16,6 +17,8 @@
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_updateScreens) name:PCOOutputScreenChangedNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_updateScreens) name:NSApplicationDidChangeScreenParametersNotification object:nil];
+
+	[self _updateData];
 
 	if (![[NSUserDefaults standardUserDefaults] objectForKey:@"chosen_screen"])
 	{
@@ -54,6 +57,21 @@
 
 - (void)_updateData
 {
+	NSData * dataObject = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example_feed" ofType:@"json"]];
+
+	NSDictionary * rootData = [NSJSONSerialization JSONObjectWithData:dataObject options:NSJSONReadingMutableContainers error:nil];
+
+	self.hashtagTitle = [rootData objectForKey:@"hashtag"];
+
+	_posts = [NSMutableArray array];
+
+	for (NSDictionary * postDict in [rootData objectForKey:@"posts"])
+	{
+		PCOHashtagPost * post = [[PCOHashtagPost alloc] initWithDictionary:postDict];
+		[_posts addObject:post];
+	}
+
+	NSLog(@"posts: %@", _posts);
 	
 }
 
