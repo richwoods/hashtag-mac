@@ -92,7 +92,7 @@
 	[NSBezierPath setDefaultLineWidth:2];
 
 
-	NSRect screenAreaRect = NSMakeRect(0, 0, [self scaledSizeForScreens].width, [self scaledSizeForScreens].height);
+	NSRect screenAreaRect = NSMakeRect((self.bounds.size.width - [self scaledSizeForScreens].width) / 2, (self.bounds.size.height - [self scaledSizeForScreens].height) / 2, [self scaledSizeForScreens].width, [self scaledSizeForScreens].height);
 	screenAreaRect.origin.x = (self.bounds.size.width / 2) - (screenAreaRect.size.width / 2);
 	screenAreaRect.origin.y = (self.bounds.size.height / 2) - (screenAreaRect.size.height / 2);
 
@@ -139,11 +139,21 @@
 
 - (NSPoint)centerMonitorPoint
 {
+	/*
 	NSSize centerMonitorSize = [NSScreen mainScreen].frame.size;
 	centerMonitorSize.width = centerMonitorSize.width / [self screenDrawScaleRatio];
 	centerMonitorSize.height = centerMonitorSize.height / [self screenDrawScaleRatio];
 
-	return NSMakePoint([self centerPoint].x - (centerMonitorSize.width / 2), [self centerPoint].y - (centerMonitorSize.height / 2));
+	return NSMakePoint([self centerPoint].x - ([NSScreen mainScreen].frame.origin.x / [self screenDrawScaleRatio]), [self centerPoint].y - ([NSScreen mainScreen].frame.origin.y / [self screenDrawScaleRatio]));
+	*/
+
+	CGFloat positiveWidth = ([self fullNormalizedActualPixelSizeOfScreens].size.width - (ABS([self fullNormalizedActualPixelSizeOfScreens].origin.x))) / [self screenDrawScaleRatio];
+	CGFloat positiveHeight = ([self fullNormalizedActualPixelSizeOfScreens].size.height - (ABS([self fullNormalizedActualPixelSizeOfScreens].origin.y))) / [self screenDrawScaleRatio];
+
+	CGFloat widthDifference = self.bounds.size.width - [self scaledSizeForScreens].width;
+	CGFloat heightDifference = self.bounds.size.height - [self scaledSizeForScreens].height;
+
+	return NSMakePoint(self.bounds.size.width - positiveWidth - (widthDifference / 2), self.bounds.size.height - positiveHeight - (heightDifference / 2));
 }
 
 
@@ -153,10 +163,10 @@
 
 	for (NSScreen * screen in [NSScreen screens])
 	{
-		//NSLog(@"screen frame: %@", NSStringFromRect([screen frame]));
-
 		defaultRect = NSUnionRect(screen.frame, defaultRect);
 	}
+
+	//NSLog(@"screen frame: %@", NSStringFromRect(defaultRect));
 
 	return defaultRect;
 }
@@ -190,12 +200,12 @@
 
 - (float)scaleRatioForWidth
 {
-	return [self fullNormalizedActualPixelSizeOfScreens].size.width / (self.frame.size.width - 20);
+	return [self fullNormalizedActualPixelSizeOfScreens].size.width / (self.frame.size.width - 50);
 }
 
 - (float)scaleRatioForHeight
 {
-	return [self fullNormalizedActualPixelSizeOfScreens].size.height / (self.frame.size.height - 20);
+	return [self fullNormalizedActualPixelSizeOfScreens].size.height / (self.frame.size.height - 50);
 }
 
 @end

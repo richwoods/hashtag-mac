@@ -12,7 +12,7 @@
 
 @interface PCOHashtagOutputWindow : NSWindow
 
-- (id)initWithScreenIndex:(NSUInteger)screenIndex;
+- (id)initWithScreenIndex:(NSUInteger)screenIndex posts:(NSMutableArray *)posts;
 
 @property (nonatomic, assign) NSInteger screenIndex;
 
@@ -25,6 +25,8 @@
 @property (nonatomic, strong) CATextLayer * bodyTextLayer;
 @property (nonatomic, strong) CATextLayer * fullNameLayer;
 @property (nonatomic, strong) CATextLayer * usernameLayer;
+
+- (void)changeSlide;
 
 @end
 

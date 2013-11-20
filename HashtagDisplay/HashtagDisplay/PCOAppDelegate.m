@@ -47,8 +47,7 @@
 		self.outputWindow = nil;
 	}
 
-	self.outputWindow = [[PCOHashtagOutputWindow alloc] initWithScreenIndex:chosenScreenIndex];
-	self.outputWindow.posts = self.posts;
+	self.outputWindow = [[PCOHashtagOutputWindow alloc] initWithScreenIndex:chosenScreenIndex posts:self.posts];
 	[self.outputWindow setBackgroundColor:[NSColor clearColor]];
 	[self.outputWindow setOpaque:NO];
 	[self.outputWindow setHasShadow:NO];
@@ -63,15 +62,20 @@
 
 	self.hashtagTitle = @"xpressgratitude";//[rootData objectForKey:@"hashtag"];
 
-	_posts = [NSMutableArray array];
+	NSMutableArray * newPosts = [NSMutableArray array];
 
 	for (NSDictionary * postDict in rootData)
 	{
 		PCOHashtagPost * post = [[PCOHashtagPost alloc] initWithDictionary:postDict];
-		[_posts addObject:post];
+		[newPosts addObject:post];
 	}
 
-	NSLog(@"posts: %@", _posts);
+	NSLog(@"posts: %@", newPosts);
+
+	_posts = newPosts;
+
+	self.outputWindow.posts = _posts;
+	[self.outputWindow changeSlide];
 	
 }
 

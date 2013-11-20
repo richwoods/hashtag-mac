@@ -20,7 +20,7 @@
 
 @implementation PCOHashtagOutputWindow
 
-- (id)initWithScreenIndex:(NSUInteger)screenIndex
+- (id)initWithScreenIndex:(NSUInteger)screenIndex posts:(NSMutableArray *)posts
 {
 	NSScreen * selectedScreen = [NSScreen mainScreen];
 
@@ -36,6 +36,8 @@
 	{
 		_screenIndex = screenIndex;
 
+		_posts = posts;
+
 		[[self contentView] setWantsLayer:YES];
 
 		[self _createImageLayer];
@@ -47,11 +49,15 @@
 		[self _createUsernameLayer];
 
 
-		self.flipTimer = [NSTimer scheduledTimerWithTimeInterval:7.0 target:self selector:@selector(_changeSlide) userInfo:nil repeats:YES];
+		self.flipTimer = [NSTimer scheduledTimerWithTimeInterval:7.0 target:self selector:@selector(changeSlide) userInfo:nil repeats:YES];
 
 		currentSlideIndex = -1;
+		if ([[NSUserDefaults standardUserDefaults] objectForKey:@"slide_index"])
+		{
+			currentSlideIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"slide_index"] integerValue];
+		}
 
-		[self _changeSlide];
+		[self changeSlide];
 
 	}
 
@@ -188,10 +194,8 @@
 }
 
 
-- (void)_changeSlide
+- (void)changeSlide
 {
-	NSLog(@"rect: %@", NSStringFromRect([[self contentView] bounds]));
-
 	NSScreen * selectedScreen = [NSScreen mainScreen];
 
 	if (_screenIndex < [[NSScreen screens] count])
@@ -203,7 +207,15 @@
 
 	[self setFrame:screenRect display:YES];
 
-	if ([_posts count] == 0) return;
+	if ([_posts count] == 0)
+	{
+		NSLog(@"no posts");
+		return;
+	}
+	else
+	{
+		NSLog(@"change slide");
+	}
 
 	if (currentSlideIndex >= [_posts count] - 1)
 	{
@@ -213,6 +225,8 @@
 	{
 		currentSlideIndex++;
 	}
+
+	[[NSUserDefaults standardUserDefaults] setObject:@(currentSlideIndex) forKey:@"slide_index"];
 
 	PCOHashtagPost * post = [_posts objectAtIndex:currentSlideIndex];
 
