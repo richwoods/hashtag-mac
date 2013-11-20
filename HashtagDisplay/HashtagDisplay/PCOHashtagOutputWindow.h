@@ -14,6 +14,8 @@
 
 - (id)initWithScreenIndex:(NSUInteger)screenIndex;
 
+@property (nonatomic, assign) NSInteger screenIndex;
+
 @property (nonatomic, strong) NSMutableArray * posts;
 
 @property (nonatomic, strong) NSTimer * flipTimer; // timer to change slides

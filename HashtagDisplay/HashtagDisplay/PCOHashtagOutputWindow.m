@@ -34,6 +34,8 @@
 	self = [super initWithContentRect:screenRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO screen:selectedScreen];
 	if (self)
 	{
+		_screenIndex = screenIndex;
+
 		[[self contentView] setWantsLayer:YES];
 
 		[self _createImageLayer];
@@ -188,6 +190,19 @@
 
 - (void)_changeSlide
 {
+	NSLog(@"rect: %@", NSStringFromRect([[self contentView] bounds]));
+
+	NSScreen * selectedScreen = [NSScreen mainScreen];
+
+	if (_screenIndex < [[NSScreen screens] count])
+	{
+		selectedScreen = [[NSScreen screens] objectAtIndex:_screenIndex];
+	}
+
+	NSRect screenRect = [selectedScreen frame];
+
+	[self setFrame:screenRect display:YES];
+
 	if ([_posts count] == 0) return;
 
 	if (currentSlideIndex >= [_posts count] - 1)
@@ -252,12 +267,12 @@
 
 - (float)portWidth
 {
-	return self.frame.size.width;
+	return [[self contentView] layer].frame.size.width;
 }
 
 - (float)portHeight
 {
-	return self.frame.size.height;
+	return [[self contentView] layer].frame.size.height;
 }
 
 
