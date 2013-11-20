@@ -19,7 +19,6 @@
 		58C3CF331826D4D800DFCFD0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C3CF121826D4D800DFCFD0 /* Cocoa.framework */; };
 		58C3CF3B1826D4D800DFCFD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58C3CF391826D4D800DFCFD0 /* InfoPlist.strings */; };
 		58C3CF3D1826D4D800DFCFD0 /* HashtagDisplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C3CF3C1826D4D800DFCFD0 /* HashtagDisplayTests.m */; };
-		58C3CF471826D6B900DFCFD0 /* example_feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 58C3CF461826D6B900DFCFD0 /* example_feed.json */; };
 		58C3CF4A1826D90900DFCFD0 /* PCOHashtagPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C3CF491826D90900DFCFD0 /* PCOHashtagPost.m */; };
 		58C3CF511826E8C500DFCFD0 /* PCODisplayLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C3CF501826E8C500DFCFD0 /* PCODisplayLayoutView.m */; };
 		58C3CF541826EC0D00DFCFD0 /* PCOHashtagOutputWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C3CF531826EC0D00DFCFD0 /* PCOHashtagOutputWindow.m */; };
@@ -56,7 +55,6 @@
 		58C3CF381826D4D800DFCFD0 /* HashtagDisplayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HashtagDisplayTests-Info.plist"; sourceTree = "<group>"; };
 		58C3CF3A1826D4D800DFCFD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58C3CF3C1826D4D800DFCFD0 /* HashtagDisplayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashtagDisplayTests.m; sourceTree = "<group>"; };
-		58C3CF461826D6B900DFCFD0 /* example_feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example_feed.json; sourceTree = "<group>"; };
 		58C3CF481826D90900DFCFD0 /* PCOHashtagPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCOHashtagPost.h; sourceTree = "<group>"; };
 		58C3CF491826D90900DFCFD0 /* PCOHashtagPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCOHashtagPost.m; sourceTree = "<group>"; };
 		58C3CF4F1826E8C500DFCFD0 /* PCODisplayLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCODisplayLayoutView.h; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 		58C3CF191826D4D800DFCFD0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				58C3CF461826D6B900DFCFD0 /* example_feed.json */,
 				58C3CF1A1826D4D800DFCFD0 /* HashtagDisplay-Info.plist */,
 				58C3CF1B1826D4D800DFCFD0 /* InfoPlist.strings */,
 				58C3CF1E1826D4D800DFCFD0 /* main.m */,
@@ -256,7 +253,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58C3CF471826D6B900DFCFD0 /* example_feed.json in Resources */,
 				58C3CF1D1826D4D800DFCFD0 /* InfoPlist.strings in Resources */,
 				58C3CF2B1826D4D800DFCFD0 /* Images.xcassets in Resources */,
 				58C3CF231826D4D800DFCFD0 /* Credits.rtf in Resources */,
@@ -413,11 +409,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HashtagDisplay/HashtagDisplay-Prefix.pch";
 				INFOPLIST_FILE = "HashtagDisplay/HashtagDisplay-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -427,11 +423,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HashtagDisplay/HashtagDisplay-Prefix.pch";
 				INFOPLIST_FILE = "HashtagDisplay/HashtagDisplay-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

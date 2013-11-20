@@ -53,13 +53,13 @@ BOOL valueIsNotNull(id object)
 		if (valueIsNotNull([dict objectForKey:@"network"]))
 		{
 			switch ([[dict objectForKey:@"network"] integerValue]) {
-				case 0:
+				case 1:
 					self.network = kNetworkTwitter;
 					break;
-				case 1:
+				case 2:
 					self.network = kNetworkFacebook;
 					break;
-				case 2:
+				case 3:
 					self.network = kNetworkInstagram;
 					break;
 
@@ -73,9 +73,9 @@ BOOL valueIsNotNull(id object)
 			[self setUserName:[dict objectForKey:@"user_name"]];
 		}
 
-		if (valueIsNotNull([dict objectForKey:@"alt_name"]))
+		if (valueIsNotNull([dict objectForKey:@"real_name"]))
 		{
-			[self setAltName:[dict objectForKey:@"alt_name"]];
+			[self setAltName:[dict objectForKey:@"real_name"]];
 		}
 
 		if (valueIsNotNull([dict objectForKey:@"post_date"]))

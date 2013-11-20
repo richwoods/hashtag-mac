@@ -45,7 +45,7 @@
 		[self _createUsernameLayer];
 
 
-		self.flipTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_changeSlide) userInfo:nil repeats:YES];
+		self.flipTimer = [NSTimer scheduledTimerWithTimeInterval:7.0 target:self selector:@selector(_changeSlide) userInfo:nil repeats:YES];
 
 		currentSlideIndex = -1;
 
@@ -72,7 +72,7 @@
 {
 	_bodyTextLayer = [CATextLayer layer];
 	_bodyTextLayer.frame = [[self contentView] layer].bounds;
-	_bodyTextLayer.string = @"This is an example tweet. Put something clever here.";
+	_bodyTextLayer.string = @"";
 	_bodyTextLayer.font = (__bridge CFTypeRef)([NSFont fontWithName:@"Helvetica" size:40]);
 	_bodyTextLayer.foregroundColor = (__bridge CGColorRef)([NSColor whiteColor]);
 	_bodyTextLayer.alignmentMode = kCAAlignmentCenter;
@@ -109,7 +109,7 @@
 	_fullNameLayer = [CATextLayer layer];
 	_fullNameLayer.frame = [[self contentView] layer].bounds;
 
-	_fullNameLayer.string = @"Jon Doe";
+	_fullNameLayer.string = @"";
 	_fullNameLayer.font = (__bridge CFTypeRef)([NSFont fontWithName:@"Helvetica" size:40]);
 	_fullNameLayer.foregroundColor = (__bridge CGColorRef)([NSColor whiteColor]);
 	_fullNameLayer.alignmentMode = kCAAlignmentLeft;
@@ -151,7 +151,7 @@
 	_usernameLayer = [CATextLayer layer];
 	_usernameLayer.frame = [[self contentView] layer].bounds;
 
-	_usernameLayer.string = @"@jondoe";
+	_usernameLayer.string = @"";
 	_usernameLayer.font = (__bridge CFTypeRef)([NSFont fontWithName:@"Helvetica" size:22]);
 	_usernameLayer.foregroundColor = (__bridge CGColorRef)([NSColor whiteColor]);
 	_usernameLayer.alignmentMode = kCAAlignmentLeft;

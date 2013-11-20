@@ -57,15 +57,15 @@
 
 - (void)_updateData
 {
-	NSData * dataObject = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example_feed" ofType:@"json"]];
+	NSData * dataObject = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://richwoodshashtag.herokuapp.com/feed.json"]];//[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"example_feed" ofType:@"json"]];
 
 	NSDictionary * rootData = [NSJSONSerialization JSONObjectWithData:dataObject options:NSJSONReadingMutableContainers error:nil];
 
-	self.hashtagTitle = [rootData objectForKey:@"hashtag"];
+	self.hashtagTitle = @"xpressgratitude";//[rootData objectForKey:@"hashtag"];
 
 	_posts = [NSMutableArray array];
 
-	for (NSDictionary * postDict in [rootData objectForKey:@"posts"])
+	for (NSDictionary * postDict in rootData)
 	{
 		PCOHashtagPost * post = [[PCOHashtagPost alloc] initWithDictionary:postDict];
 		[_posts addObject:post];
