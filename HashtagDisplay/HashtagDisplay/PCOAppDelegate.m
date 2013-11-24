@@ -48,6 +48,7 @@
 	}
 
 	self.outputWindow = [[PCOHashtagOutputWindow alloc] initWithScreenIndex:chosenScreenIndex posts:self.posts];
+	self.outputWindow.level = NSStatusWindowLevel + 2;
 	[self.outputWindow setBackgroundColor:[NSColor clearColor]];
 	[self.outputWindow setOpaque:NO];
 	[self.outputWindow setHasShadow:NO];

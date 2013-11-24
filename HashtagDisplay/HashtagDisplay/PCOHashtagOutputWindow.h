@@ -21,10 +21,13 @@
 @property (nonatomic, strong) NSTimer * flipTimer; // timer to change slides
 
 
+@property (nonatomic, strong) CATextLayer * hashtagLayer;
+
 @property (nonatomic, strong) CALayer * imageLayer;
 @property (nonatomic, strong) CATextLayer * bodyTextLayer;
 @property (nonatomic, strong) CATextLayer * fullNameLayer;
 @property (nonatomic, strong) CATextLayer * usernameLayer;
+@property (nonatomic, strong) CATextLayer * dateLayer;
 
 - (void)changeSlide;
 
