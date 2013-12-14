@@ -80,18 +80,10 @@ BOOL valueIsNotNull(id object)
 
 		if (valueIsNotNull([dict objectForKey:@"post_date"]))
 		{
-
 			NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
 			[formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
 			[formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
-			//[formatter setLocale:[NSLocale g]];
-			//NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-			//[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-			//NSLog(@"%@", [dateFormatter dateFromString:[dict objectForKey:@"post_date"]]);
-			//NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
-			//NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-			//[formatter setLocale:locale];
-			//[formatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
+
 			NSDate * convertedDate = [formatter dateFromString:[dict objectForKey:@"post_date"]];
 			[self setPostDate:convertedDate];
 
